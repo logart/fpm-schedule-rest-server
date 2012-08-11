@@ -23,23 +23,21 @@ public class SchedulesController {
     static ScheduleRepository repository = new ScheduleRepository();
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public ScheduleTable[] getSchedules() {
-//        throw new RuntimeException();
         return repository.getAll();
     }
 
     @GET
     @Path("{groupName}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON+ ";charset=utf-8")
     public ScheduleTable getSchedule(@PathParam("groupName") String groupName) {
-//        throw new RuntimeException();
         return repository.get(groupName);
     }
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON+ ";charset=utf-8")
     public Response putSchedule(ScheduleTable schedule) {
         repository.put(schedule);
         return Response.status(200).build();
